@@ -27,8 +27,8 @@ const app = Vue.createApp({
                 ]
             },
             lunchIn: [
-                {name: 'Chickpea tuna salad sandwiches', description: 'Chickpea tuna salad made with vegenaise, mustard, celery, and other things'},
-                {name: 'Burritos', description: 'Refried bean burritos with fres veggies'},
+                {name: 'Chickpea Tuna Salad Sandwiches', description: 'Chickpea tuna salad made with vegenaise, mustard, celery, and other things'},
+                {name: 'Burritos', description: 'Refried bean burritos with fresh veggies'},
                 {name: 'Tofurky Sandwiches', description: 'Tofurky, cheese, fresh veggies'},
             ],
             lunchOut: [

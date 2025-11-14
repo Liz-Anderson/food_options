@@ -9,6 +9,11 @@ h2 {
     margin: 20px;
 }
 
+.meal-section {
+    border: 1px solid white;
+    margin: 20px;
+}
+
 .card {
     border: 1px solid black;
     margin: 20px;

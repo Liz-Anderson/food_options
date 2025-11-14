@@ -24,25 +24,34 @@
 
             <div class="dinner" v-show="category === 'dinner'">
 
-                <h2>Dinner - In</h2>
-                <div class="meal-in card" v-for="meal in dinnerIn">
-                    <h3 class="meal-name">{{ meal.name }}</h3>
-                    <p class="meal-description">{{ meal.description }}</p>
+                <div class="meal-section">
+                    <h2>Dinner - In</h2>
+                    <div class="meal-in card" v-for="meal in dinnerIn">
+                        <h3 class="meal-name">{{ meal.name }}</h3>
+                        <p class="meal-description">{{ meal.description }}</p>
+                    </div>
                 </div>
+                
 
-                <h2>Dinner - Takeout</h2>
-                <div class="meal-out card" v-for="meal in dinnerOut.takeout">
-                    <h3 class="meal-name">{{ meal.name }}</h3>
-                    <p class="meal-description">{{ meal.description }}</p>
-                    <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                <div class="meal-section">
+                    <h2>Dinner - Takeout</h2>
+                    <div class="meal-out card" v-for="meal in dinnerOut.takeout">
+                        <h3 class="meal-name">{{ meal.name }}</h3>
+                        <p class="meal-description">{{ meal.description }}</p>
+                        <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                    </div>
                 </div>
+                
             
-                <h2>Dinner - Eat Out</h2>
-                <div class="meal-out card" v-for="meal in dinnerOut.eatIn">
-                    <h3 class="meal-name">{{ meal.name }}</h3>
-                    <p class="meal-description">{{ meal.description }}</p>
-                    <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                <div class="meal-section">
+                    <h2>Dinner - Eat Out</h2>
+                    <div class="meal-out card" v-for="meal in dinnerOut.eatIn">
+                        <h3 class="meal-name">{{ meal.name }}</h3>
+                        <p class="meal-description">{{ meal.description }}</p>
+                        <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                    </div>
                 </div>
+                
             </div>
 
 
@@ -52,19 +61,25 @@
 
             <div class="lunch" v-show="category === 'lunch'">
 
-                <h2>Lunch - In</h2>
-                <div class="meal-in card" v-for="meal in lunchIn">
-                    <h3 class="meal-name">{{ meal.name }}</h3>
-                    <p class="meal-description">{{ meal.description }}</p>
-                    
+                <div class="meal-section">
+                    <h2>Lunch - In</h2>
+                    <div class="meal-in card" v-for="meal in lunchIn">
+                        <h3 class="meal-name">{{ meal.name }}</h3>
+                        <p class="meal-description">{{ meal.description }}</p>
+                        
+                    </div>
                 </div>
+                
 
-                <h2>Lunch - Out</h2>
-                <div class="meal-in card" v-for="meal in lunchOut">
-                    <h3 class="meal-name">{{ meal.name }}</h3>
-                    <p class="meal-description">{{ meal.description }}</p>
-                    <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                <div class="meal-section">
+                    <h2>Lunch - Out</h2>
+                    <div class="meal-in card" v-for="meal in lunchOut">
+                        <h3 class="meal-name">{{ meal.name }}</h3>
+                        <p class="meal-description">{{ meal.description }}</p>
+                        <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                    </div>
                 </div>
+                
             </div>
 
 
@@ -73,25 +88,31 @@
     <!----------------- breakfast options ---------------------------------------------------------------------->
             <div class="breakfast" v-show="category === 'breakfast'">
 
-                <h2>Breakfast - In</h2>
+                <div class="meal-section">
+                    <h2>Breakfast - In</h2>
 
-                <div class="meal-in card" v-for="meal in breakfastIn">
+                    <div class="meal-in card" v-for="meal in breakfastIn">
 
-                    <h3 class="meal-name">{{ meal.name }}</h3>
-                    <p class="meal-description">{{ meal.description }}</p>
-            
+                        <h3 class="meal-name">{{ meal.name }}</h3>
+                        <p class="meal-description">{{ meal.description }}</p>
+                
+                    </div>
                 </div>
+                
 
 
-                <h2>Breakfast - Out</h2>
+                <div class="meal-section">
+                    <h2>Breakfast - Out</h2>
 
-                <div class="meal-in card" v-for="meal in breakfastOut">
+                    <div class="meal-in card" v-for="meal in breakfastOut">
 
-                    <h3 class="meal-name">{{ meal.name }}</h3>
-                    <p class="meal-description">{{ meal.description }}</p>
-                    <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                        <h3 class="meal-name">{{ meal.name }}</h3>
+                        <p class="meal-description">{{ meal.description }}</p>
+                        <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
 
+                    </div>
                 </div>
+                
             </div>
 
 
