@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="app">
+
+            <header>
+
+                <h1>Food Options!</h1>
+
+                <button @click="category = 'breakfast'">Breakfast</button>
+                <button @click="category = 'lunch'">Lunch</button>
+                <button @click="category = 'dinner'">Dinner</button>
+                
+            </header>
+
+    <!----------------- dinner options --------------------------------------------------------------------------->
+
+            <div class="dinner" v-show="category === 'dinner'">
+
+                <h2>Dinner - In</h2>
+                <div class="meal-in card" v-for="meal in dinnerIn">
+                    <h3 class="meal-name">{{ meal.name }}</h3>
+                    <p class="meal-description">{{ meal.description }}</p>
+                </div>
+
+                <h2>Dinner - Takeout</h2>
+                <div class="meal-out card" v-for="meal in dinnerOut.takeout">
+                    <h3 class="meal-name">{{ meal.name }}</h3>
+                    <p class="meal-description">{{ meal.description }}</p>
+                    <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                </div>
+            
+                <h2>Dinner - Eat Out</h2>
+                <div class="meal-out card" v-for="meal in dinnerOut.eatIn">
+                    <h3 class="meal-name">{{ meal.name }}</h3>
+                    <p class="meal-description">{{ meal.description }}</p>
+                    <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                </div>
+            </div>
+
+
+            
+
+    <!----------------- lunch options ------------------------------------------------------------------------>
+
+            <div class="lunch" v-show="category === 'lunch'">
+
+                <h2>Lunch - In</h2>
+                <div class="meal-in card" v-for="meal in lunchIn">
+                    <h3 class="meal-name">{{ meal.name }}</h3>
+                    <p class="meal-description">{{ meal.description }}</p>
+                    
+                </div>
+
+                <h2>Lunch - Out</h2>
+                <div class="meal-in card" v-for="meal in lunchOut">
+                    <h3 class="meal-name">{{ meal.name }}</h3>
+                    <p class="meal-description">{{ meal.description }}</p>
+                    <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                </div>
+            </div>
+
+
+            
+
+    <!----------------- breakfast options ---------------------------------------------------------------------->
+            <div class="breakfast" v-show="category === 'breakfast'">
+
+                <h2>Breakfast - In</h2>
+
+                <div class="meal-in card" v-for="meal in breakfastIn">
+
+                    <h3 class="meal-name">{{ meal.name }}</h3>
+                    <p class="meal-description">{{ meal.description }}</p>
+            
+                </div>
+
+
+                <h2>Breakfast - Out</h2>
+
+                <div class="meal-in card" v-for="meal in breakfastOut">
+
+                    <h3 class="meal-name">{{ meal.name }}</h3>
+                    <p class="meal-description">{{ meal.description }}</p>
+                    <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <script src="https://unpkg.com/vue@3"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+        <script src="site.js"></script>
+    </body>
+</html>

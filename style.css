@@ -1,0 +1,16 @@
+body {
+    background-color: rgb(155, 139, 168);
+}
+header {
+    margin: 20px;
+}
+
+h2 {
+    margin: 20px;
+}
+
+.card {
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
+}
