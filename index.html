@@ -3,9 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Food Options!</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
         <link rel="stylesheet" href="style.css" />
+        
     </head>
     <body>
         <div id="app">
@@ -14,9 +18,13 @@
 
                 <h1>Food Options!</h1>
 
-                <button @click="category = 'breakfast'">Breakfast</button>
-                <button @click="category = 'lunch'">Lunch</button>
-                <button @click="category = 'dinner'">Dinner</button>
+                <div class="button-box">
+                    <button @click="category = 'breakfast'">Breakfast</button>
+                    <button @click="category = 'lunch'">Lunch</button>
+                    <button @click="category = 'dinner'">Dinner</button>
+                </div>
+
+                
                 
             </header>
 
@@ -38,7 +46,7 @@
                     <div class="meal-out card" v-for="meal in dinnerOut.takeout">
                         <h3 class="meal-name">{{ meal.name }}</h3>
                         <p class="meal-description">{{ meal.description }}</p>
-                        <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                        <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
                     </div>
                 </div>
                 
@@ -48,7 +56,7 @@
                     <div class="meal-out card" v-for="meal in dinnerOut.eatIn">
                         <h3 class="meal-name">{{ meal.name }}</h3>
                         <p class="meal-description">{{ meal.description }}</p>
-                        <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                        <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
                     </div>
                 </div>
                 
@@ -76,7 +84,7 @@
                     <div class="meal-in card" v-for="meal in lunchOut">
                         <h3 class="meal-name">{{ meal.name }}</h3>
                         <p class="meal-description">{{ meal.description }}</p>
-                        <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                        <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
                     </div>
                 </div>
                 
@@ -108,7 +116,7 @@
 
                         <h3 class="meal-name">{{ meal.name }}</h3>
                         <p class="meal-description">{{ meal.description }}</p>
-                        <p class="menu-link"><a :href="`${meal.link}`" target="_blank">Menu</a></p>
+                        <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
 
                     </div>
                 </div>
