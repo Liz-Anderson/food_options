@@ -13,120 +13,142 @@
     </head>
     <body>
         <div id="app">
+            <div v-show="section === 'home'">
 
-            <header>
+                <header>
 
-                <h1>Food Options!</h1>
+                    <h1>Food Options!</h1>
 
-                <div class="button-box">
-                    <button @click="category = 'breakfast'">Breakfast</button>
-                    <button @click="category = 'lunch'">Lunch</button>
-                    <button @click="category = 'dinner'">Dinner</button>
-                </div>
-
-                
-                
-            </header>
-
-    <!----------------- dinner options --------------------------------------------------------------------------->
-
-            <div class="dinner" v-show="category === 'dinner'">
-
-                <div class="meal-section">
-                    <h2>Dinner - In</h2>
-                    <div class="meal-in card" v-for="meal in dinnerIn">
-                        <h3 class="meal-name">{{ meal.name }}</h3>
-                        <p class="meal-description">{{ meal.description }}</p>
+                    <div class="button-box">
+                        <button @click="category = 'breakfast'">Breakfast</button>
+                        <button @click="category = 'lunch'">Lunch</button>
+                        <button @click="category = 'dinner'">Dinner</button>
                     </div>
-                </div>
-                
 
-                <div class="meal-section">
-                    <h2>Dinner - Takeout</h2>
-                    <div class="meal-out card" v-for="meal in dinnerOut.takeout">
-                        <h3 class="meal-name">{{ meal.name }}</h3>
-                        <p class="meal-description">{{ meal.description }}</p>
-                        <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
+                    
+                    
+                </header>
+
+        <!----------------- dinner options --------------------------------------------------------------------------->
+
+                <div class="dinner" v-show="category === 'dinner'">
+
+                    <div class="meal-section">
+                        <h2>Dinner - In</h2>
+                        <div class="meal-in card" v-for="meal in dinnerIn">
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                        </div>
                     </div>
-                </div>
-                
-            
-                <div class="meal-section">
-                    <h2>Dinner - Eat Out</h2>
-                    <div class="meal-out card" v-for="meal in dinnerOut.eatIn">
-                        <h3 class="meal-name">{{ meal.name }}</h3>
-                        <p class="meal-description">{{ meal.description }}</p>
-                        <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
+                    
+
+                    <div class="meal-section">
+                        <h2>Dinner - Takeout</h2>
+                        <div class="meal-out card" v-for="meal in dinnerOut.takeout">
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                            <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
+                        </div>
                     </div>
-                </div>
+                    
                 
-            </div>
+                    <div class="meal-section">
+                        <h2>Dinner - Eat Out</h2>
+                        <div class="meal-out card" v-for="meal in dinnerOut.eatIn">
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                            <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
+                        </div>
+                    </div>
+                    
+                </div>
 
 
-            
+                
 
-    <!----------------- lunch options ------------------------------------------------------------------------>
+        <!----------------- lunch options ------------------------------------------------------------------------>
 
-            <div class="lunch" v-show="category === 'lunch'">
+                <div class="lunch" v-show="category === 'lunch'">
 
-                <div class="meal-section">
-                    <h2>Lunch - In</h2>
-                    <div class="meal-in card" v-for="meal in lunchIn">
-                        <h3 class="meal-name">{{ meal.name }}</h3>
-                        <p class="meal-description">{{ meal.description }}</p>
+                    <div class="meal-section">
+                        <h2>Lunch - In</h2>
+                        <div class="meal-in card" v-for="meal in lunchIn">
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                            
+                        </div>
+                    </div>
+                    
+
+                    <div class="meal-section">
+                        <h2>Lunch - Out</h2>
+                        <div class="meal-in card" v-for="meal in lunchOut">
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                            <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
+                        </div>
+                    </div>
+                    
+                </div>
+
+
+                
+
+        <!----------------- breakfast options ---------------------------------------------------------------------->
+                <div class="breakfast" v-show="category === 'breakfast'">
+
+                    <div class="meal-section">
+                        <h2>Breakfast - In</h2>
+
+                        <div class="meal-in card" v-for="meal in breakfastIn">
+
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                    
+                        </div>
+                    </div>
+                    
+
+
+                    <div class="meal-section">
+                        <h2>Breakfast - Out</h2>
+
+                        <div class="meal-in card" v-for="meal in breakfastOut" :key="meal.name" @click="selectMeal(meal)">
+                            
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                            <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
+                        
+                        </div>
+                    </div>
+                    <div v-show="">
                         
                     </div>
+                    
                 </div>
-                
 
-                <div class="meal-section">
-                    <h2>Lunch - Out</h2>
-                    <div class="meal-in card" v-for="meal in lunchOut">
-                        <h3 class="meal-name">{{ meal.name }}</h3>
-                        <p class="meal-description">{{ meal.description }}</p>
-                        <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
-                    </div>
-                </div>
-                
+
+
+                <button @click="section = 'choices'">Select</button>
+
             </div>
+            <div v-show="section === 'choices'">
+                <h2>Breakfast - Out</h2>
 
-
-            
-
-    <!----------------- breakfast options ---------------------------------------------------------------------->
-            <div class="breakfast" v-show="category === 'breakfast'">
-
-                <div class="meal-section">
-                    <h2>Breakfast - In</h2>
-
-                    <div class="meal-in card" v-for="meal in breakfastIn">
-
-                        <h3 class="meal-name">{{ meal.name }}</h3>
-                        <p class="meal-description">{{ meal.description }}</p>
-                
+                    <div class="meal-in card" v-for="meal in selected" :key="meal.name" @click="selectMeal(meal)">
+                        <div >
+                                              
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                            <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
+                        </div>
+      
+                    
                     </div>
-                </div>
-                
 
+                <button @click="section = 'home'">Back</button>
 
-                <div class="meal-section">
-                    <h2>Breakfast - Out</h2>
-
-                    <div class="meal-in card" v-for="meal in breakfastOut">
-
-                        <h3 class="meal-name">{{ meal.name }}</h3>
-                        <p class="meal-description">{{ meal.description }}</p>
-                        <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
-
-                    </div>
-                </div>
-                
             </div>
-
-
-
-
-
         </div>
         <script src="https://unpkg.com/vue@3"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
