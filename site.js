@@ -145,7 +145,7 @@ const app = Vue.createApp({
                 // breakfastOut
                 {name: 'Epif', mealType: 'breakfastOut', description: 'Vegan brunch', link: 'https://www.epifpdx.com/', selected: false},
                 {name: 'City State', mealType: 'breakfastOut', description: 'Diner brunch (benedicts/scrambles)', link: 'https://www.citystatediner.com/', selected: false},
-                {name: 'Pie Spot', mealType: 'breakfastOut', description: 'Breakfast sandwishes and quiches', link: 'https://www.pie-spot.com/', selected: false},
+                {name: 'Pie Spot', mealType: 'breakfastOut', description: 'Breakfast sandwiches and quiches', link: 'https://www.pie-spot.com/', selected: false},
                 
 
             ],
