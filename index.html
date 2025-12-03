@@ -37,7 +37,7 @@
                 <div class="dinner" v-show="category === 'dinner'">
                     <div class="meal-section">
                         <h2>Dinner - In</h2>
-                        <div v-for="meal in meals">
+                        <div v-for="meal in meals" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
                             <div  class="meal-in card" v-show="meal.mealType === 'dinnerIn'">
                                 <h3 class="meal-name">{{ meal.name }}</h3>
                                 <p class="meal-description">{{ meal.description }}</p>
@@ -48,7 +48,7 @@
 
                     <div class="meal-section">
                         <h2>Dinner - Takeout</h2>
-                        <div v-for="meal in meals">
+                        <div v-for="meal in meals" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
                             <div class="meal-out card" v-if="meal.mealType === 'dinnerTakeout'">
                                 <h3 class="meal-name">{{ meal.name }}</h3>
                                 <p class="meal-description">{{ meal.description }}</p>
@@ -61,7 +61,7 @@
 
                     <div class="meal-section">
                         <h2>Dinner - Eat Out</h2>
-                        <div v-for="meal in meals">
+                        <div v-for="meal in meals" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
                             <div class="meal-out card" v-if="meal.mealType === 'dinnerEatOut'">
                                 <h3 class="meal-name">{{ meal.name }}</h3>
                                 <p class="meal-description">{{ meal.description }}</p>
@@ -82,7 +82,7 @@
 
                     <div class="meal-section">
                         <h2>Dinner - Takeout</h2>
-                        <div class="meal-out card" v-for="meal in meals.dinnerOut.takeout">
+                        <div class="meal-out card" v-for="meal in meals.dinnerTakeout">
                             <h3 class="meal-name">{{ meal.name }}</h3>
                             <p class="meal-description">{{ meal.description }}</p>
                             <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
@@ -92,7 +92,7 @@
                 
                     <div class="meal-section">
                         <h2>Dinner - Eat Out</h2>
-                        <div class="meal-out card" v-for="meal in meals.dinnerOut.eatIn">
+                        <div class="meal-out card" v-for="meal in meals.dinnerEatOut">
                             <h3 class="meal-name">{{ meal.name }}</h3>
                             <p class="meal-description">{{ meal.description }}</p>
                             <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
@@ -110,7 +110,7 @@
 
                     <div class="meal-section">
                         <h2>Lunch - In</h2>
-                        <div v-for="meal in meals">
+                        <div v-for="meal in meals" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
                             <div class="meal-in card" v-if="meal.mealType === 'lunchIn'">
                                 <h3 class="meal-name">{{ meal.name }}</h3>
                                 <p class="meal-description">{{ meal.description }}</p>
@@ -123,7 +123,7 @@
 
                     <div class="meal-section">
                         <h2>Lunch - Out</h2>
-                        <div v-for="meal in meals">
+                        <div v-for="meal in meals" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
                             <div class="meal-in card" v-if="meal.mealType === 'lunchOut'">
                                 <h3 class="meal-name">{{ meal.name }}</h3>
                                 <p class="meal-description">{{ meal.description }}</p>
@@ -133,7 +133,7 @@
 
                     </div>
                     
-                </div>
+                
 
                     <!-- <div class="meal-section">
                         <h2>Lunch - In</h2>
@@ -152,9 +152,9 @@
                             <p class="meal-description">{{ meal.description }}</p>
                             <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
                         </div>
-                    </div>
+                    </div> -->
                     
-                </div> -->
+                </div>
 
 
                 
@@ -228,11 +228,16 @@
                 <button @click="section = 'choices'">Select</button>
 
             </div>
+
+
+
+<!---------------------------------- selected choices section ------------------------------------------------------>
+
             <div v-show="section === 'choices'">
 
-                
-                <h2>Breakfast - In</h2>
-                    <div v-for="meal in selected" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
+                <div v-if="selectedBreakfastIn.length">
+                    <h2>Breakfast - In</h2>
+                    <div v-for="meal in selectedBreakfastIn" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
                         <div class="meal-in card" v-if="meal.mealType === 'breakfastIn'">
 
                             <h3 class="meal-name">{{ meal.name }}</h3>
@@ -241,19 +246,25 @@
                         </div>
                     </div>
 
+                </div>
+                
 
-                <h2>Breakfast - Out</h2>
+                <div v-if="selectedBreakfastOut.length">
+                    <h2>Breakfast - Out</h2>
 
-                    <div v-for="meal in selected" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
+                    <div v-for="meal in selectedBreakfastOut" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
                         <div class="meal-in card" v-if="meal.mealType ==='breakfastOut'">
-                                              
+                                                
                             <h3 class="meal-name">{{ meal.name }}</h3>
                             <p class="meal-description">{{ meal.description }}</p>
                             <a :href="`${meal.link}`" target="_blank"><p class="menu-link">Menu</p></a>
                         </div>
-      
+        
                     
                     </div>
+
+                </div>
+                
 
                 <button @click="section = 'home'">Back</button>
 
