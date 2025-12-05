@@ -234,6 +234,79 @@
 <!---------------------------------- selected choices section ------------------------------------------------------>
 
             <div v-show="section === 'choices'">
+                <h2>Selected Food Choices</h2>
+
+<!---------------------------------- dinner selected choices ------------------------------------------------------->
+
+                <div v-if="selectedDinnerIn.length">
+                    <h2>Dinner - In</h2>
+                    <div v-for="meal in selectedDinnerIn" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
+                        <div class="meal-in card" v-if="meal.mealType === 'dinnerIn'">
+
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                    
+                        </div>
+                    </div>
+
+                </div>
+
+                <div v-if="selectedDinnerTakeout.length">
+                    <h2>Dinner - Takeout</h2>
+                    <div v-for="meal in selectedDinnerTakeout" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
+                        <div class="meal-in card" v-if="meal.mealType === 'dinnerTakeout'">
+
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                    
+                        </div>
+                    </div>
+
+                </div>
+
+                <div v-if="selectedDinnerEatOut.length">
+                    <h2>Dinner - Eat Out</h2>
+                    <div v-for="meal in selectedDinnerEatOut" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
+                        <div class="meal-in card" v-if="meal.mealType === 'dinnerEatOut'">
+
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                    
+                        </div>
+                    </div>
+
+                </div>
+
+<!------------------------------- lunch selected choices ----------------------------------------------------------->
+
+
+                <div v-if="selectedLunchIn.length">
+                    <h2>Lunch - In</h2>
+                    <div v-for="meal in selectedLunchIn" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
+                        <div class="meal-in card" v-if="meal.mealType === 'lunchIn'">
+
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                    
+                        </div>
+                    </div>
+
+                </div>
+                <div v-if="selectedLunchOut.length">
+                    <h2>Lunch - Out</h2>
+                    <div v-for="meal in selectedLunchOut" :key="meals.indexOf(meal)" @click="selectMeal(meal)">
+                        <div class="meal-in card" v-if="meal.mealType === 'lunchOut'">
+
+                            <h3 class="meal-name">{{ meal.name }}</h3>
+                            <p class="meal-description">{{ meal.description }}</p>
+                    
+                        </div>
+                    </div>
+
+                </div>
+  
+
+<!------------------------------------ breakfast selected choices --------------------------------------------------->
 
                 <div v-if="selectedBreakfastIn.length">
                     <h2>Breakfast - In</h2>

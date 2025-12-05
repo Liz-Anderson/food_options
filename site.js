@@ -179,7 +179,7 @@ const app = Vue.createApp({
         selectedLunchIn: function() {
             
             return this.meals.filter(function(item){
-                return (item.selected === true && item.mealType === 'lunchOut')
+                return (item.selected === true && item.mealType === 'lunchIn')
             })
         },
 
