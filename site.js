@@ -158,10 +158,12 @@ const app = Vue.createApp({
             console.log("before: ", meal.selected, meal)
             meal.selected = !meal.selected
             console.log("after: ", meal.selected)
+           
         },
    
     },
     computed: {
+        // all these functions allow me to see the list of meals that have been selected
         selectedBreakfastIn: function() {
             
             return this.meals.filter(function(item){
